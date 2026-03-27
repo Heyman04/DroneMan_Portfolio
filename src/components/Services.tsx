@@ -18,22 +18,6 @@ export default function Services() {
       icon: Video,
       image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop',
       features: ['Live Broadcasting', 'Multi-drone Sync', 'Crowd Monitoring']
-    },
-    {
-      id: 'mapping',
-      title: 'Industrial Mapping',
-      description: 'High-precision 3D mapping, surveying, and inspection for construction and agriculture.',
-      icon: Map,
-      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=800&auto=format&fit=crop',
-      features: ['LiDAR Scanning', 'Thermal Imaging', 'Volumetric Analysis']
-    },
-    {
-      id: 'rentals',
-      title: 'Drone Rentals',
-      description: 'Top-tier commercial and consumer drones available for short-term and long-term rental.',
-      icon: Package,
-      image: 'https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=800&auto=format&fit=crop',
-      features: ['DJI Enterprise Fleet', 'Insured Equipment', 'Operator Included']
     }
   ];
 

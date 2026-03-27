@@ -18,16 +18,16 @@ export default function Footer() {
               Capturing perspectives that elevate every story. India's premier drone academy and service provider.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-primary transition-colors border border-gray-200 hover:border-red-200">
+              <a href="https://www.instagram.com/dronemanacademy?igsh=NmN5YmNqYzMxangx" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-primary transition-colors border border-gray-200 hover:border-red-200">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-primary transition-colors border border-gray-200 hover:border-red-200">
+              <a href="#" onClick={(e) => e.preventDefault()} className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-primary transition-colors border border-gray-200 hover:border-red-200">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-primary transition-colors border border-gray-200 hover:border-red-200">
+              <a href="#" onClick={(e) => e.preventDefault()} className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-primary transition-colors border border-gray-200 hover:border-red-200">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-primary transition-colors border border-gray-200 hover:border-red-200">
+              <a href="#" onClick={(e) => e.preventDefault()} className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-primary transition-colors border border-gray-200 hover:border-red-200">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
@@ -36,30 +36,30 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-6 text-black">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-sm text-gray-500 hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#about" className="text-sm text-gray-500 hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#services" className="text-sm text-gray-500 hover:text-primary transition-colors">Services</a></li>
-              <li><a href="#portfolio" className="text-sm text-gray-500 hover:text-primary transition-colors">Portfolio</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-primary transition-colors">Home</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-primary transition-colors">Services</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-primary transition-colors">Portfolio</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-bold mb-6 text-black">Learn</h4>
             <ul className="space-y-3">
-              <li><a href="#courses" className="text-sm text-gray-500 hover:text-primary transition-colors">DGCA Certification</a></li>
-              <li><a href="#courses" className="text-sm text-gray-500 hover:text-primary transition-colors">FPV Racing</a></li>
+              <li><a href="#courses" className="text-sm text-gray-500 hover:text-primary transition-colors">3D Printing & Design</a></li>
+              <li><a href="#courses" className="text-sm text-gray-500 hover:text-primary transition-colors">Simulation</a></li>
               <li><a href="#workshops" className="text-sm text-gray-500 hover:text-primary transition-colors">Kids Workshops</a></li>
-              <li><a href="#workshops" className="text-sm text-gray-500 hover:text-primary transition-colors">Engineering Programs</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-primary transition-colors">Engineering Programs</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-bold mb-6 text-black">Legal</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-sm text-gray-500 hover:text-black transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-sm text-gray-500 hover:text-black transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-sm text-gray-500 hover:text-black transition-colors">Refund Policy</a></li>
-              <li><a href="#" className="text-sm text-gray-500 hover:text-black transition-colors">DGCA Guidelines</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-black transition-colors">Privacy Policy</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-black transition-colors">Terms of Service</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-black transition-colors">Refund Policy</a></li>
+              <li><a href="#" onClick={(e) => e.preventDefault()} className="text-sm text-gray-500 hover:text-black transition-colors">DGCA Guidelines</a></li>
             </ul>
           </div>
         </div>

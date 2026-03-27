@@ -7,12 +7,15 @@ export default function Hero() {
       {/* Background Video/Image */}
       <div className="absolute inset-0 z-0 bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-background z-10" />
-        <img
-          src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2000&auto=format&fit=crop"
-          alt="Cinematic Drone View"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover opacity-60"
-          referrerPolicy="no-referrer"
-        />
+        >
+          <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Floating Drone Animation */}
@@ -50,16 +53,16 @@ export default function Hero() {
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-medium tracking-wide text-white/90 uppercase">Droneman Academy</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-white">
             Capturing perspectives that <br className="hidden md:block" />
             <span className="text-primary">elevate every story</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
             Professional drone services, certified pilot training, and hands-on workshops for the future of aerial tech.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
             <a
               href="#services"

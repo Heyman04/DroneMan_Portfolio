@@ -5,8 +5,9 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: 'Cinematic Wedding',
-      category: 'Event Coverage',
+      title: 'Once Called FLY_INDIA',
+      category: '',
+      video: '/images/videoplayback.mp4',
       image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop',
       colSpan: 'md:col-span-2',
       rowSpan: 'md:row-span-2'
@@ -47,12 +48,6 @@ export default function Portfolio() {
               Featured <span className="text-primary">Projects</span>
             </h3>
           </div>
-          <a
-            href="#contact"
-            className="px-6 py-3 rounded-full bg-white hover:bg-gray-50 text-black font-semibold transition-all border border-gray-200 hover:border-primary/30 shadow-sm"
-          >
-            View All Projects
-          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] gap-6">
@@ -65,14 +60,25 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`relative group rounded-3xl overflow-hidden cursor-pointer ${project.colSpan} ${project.rowSpan}`}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                referrerPolicy="no-referrer"
-              />
+              {project.video ? (
+                <video
+                  src={project.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-black"
+                />
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-              
+
               <div className="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                 <div className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                   <PlayCircle className="w-12 h-12 text-primary" />

@@ -5,46 +5,41 @@ export default function Courses() {
   const courses = [
     {
       id: 'dgca',
-      title: 'DGCA Certified RPC',
-      subtitle: 'Remote Pilot Certificate',
+      title: 'Cinematography',
       duration: '5 Days',
-      mode: 'Offline / Practical',
+      mode: 'Offline',
       features: [
-        'Official DGCA Certification',
-        'Simulator Training (10 Hrs)',
-        'Dual-Control Flight Practice',
-        'Regulations & Airspace Knowledge',
-        '100% Placement Assistance'
+        'Camera Basics',
+        'Drone Camera Movements',
+        'Shot Types',
+        'ND Filters',
+        'Practical Demo'
       ],
       popular: true
     },
     {
       id: 'fpv',
-      title: 'FPV Racing & Freestyle',
-      subtitle: 'Master First Person View',
-      duration: '3 Weeks',
-      mode: 'Hybrid',
+      title: 'Kids Workshop',
+      duration: '5 Days',
+      mode: 'Offline',
       features: [
-        'Custom Drone Assembly',
-        'Acro Mode Mastery',
-        'Cinewhoop Operations',
-        'Betaflight Configuration',
-        'Racing Track Practice'
+        'Simulation',
+        'Build(F405 Frame)',
+        'Mission Planner',
+        '3D Design & Printing',
       ],
       popular: false
     },
     {
       id: 'mapping',
-      title: 'Industrial Mapping',
-      subtitle: 'Surveying & 3D Modeling',
-      duration: '2 Weeks',
-      mode: 'Online + Field',
+      title: 'Engineering Students Workshop',
+      duration: '5 Days',
+      mode: 'Offline',
       features: [
-        'Pix4D & DroneDeploy Mastery',
-        'RTK/PPK Operations',
-        'Volumetric Calculations',
-        'Thermal Inspection Basics',
-        'Client Reporting'
+        'Simulation',
+        'Build(FPV,Tarrot)',
+        'Mission Planner',
+        '3D Design & Printing',
       ],
       popular: false
     }
@@ -84,16 +79,15 @@ export default function Courses() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative bg-white rounded-3xl p-8 border transition-all duration-300 hover:-translate-y-2 ${
-                course.popular ? 'border-primary shadow-[0_0_30px_rgba(229,9,20,0.15)]' : 'border-gray-200 hover:border-primary/30 shadow-sm hover:shadow-md'
-              }`}
+              className={`relative bg-white rounded-3xl p-8 border transition-all duration-300 hover:-translate-y-2 ${course.popular ? 'border-primary shadow-[0_0_30px_rgba(229,9,20,0.15)]' : 'border-gray-200 hover:border-primary/30 shadow-sm hover:shadow-md'
+                }`}
             >
               {course.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-600 to-red-800 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                   Most Popular
                 </div>
               )}
-              
+
               <div className="text-center mb-8">
                 <h4 className="text-2xl font-bold mb-2 text-black">{course.title}</h4>
                 <p className="text-gray-500 text-sm">{course.subtitle}</p>
@@ -120,11 +114,7 @@ export default function Courses() {
               <div className="mt-auto text-center">
                 <a
                   href="#booking"
-                  className={`inline-block w-full py-4 rounded-xl font-bold transition-all ${
-                    course.popular
-                      ? 'bg-primary text-white hover:bg-primary/90 hover-glow'
-                      : 'bg-gray-50 text-black border border-gray-200 hover:bg-gray-100'
-                  }`}
+                  className="inline-block w-full py-4 rounded-xl font-bold transition-all active:scale-95 bg-gray-50 text-black border border-gray-200 hover:bg-primary hover:text-white hover:border-primary"
                 >
                   Enroll Now
                 </a>

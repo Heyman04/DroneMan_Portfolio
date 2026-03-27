@@ -1,7 +1,39 @@
 import { motion } from 'motion/react';
 import { Send, Phone, MapPin, Mail } from 'lucide-react';
+import React, { useState } from 'react';
 
 export default function Booking() {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+
+    // Collect form data implicitly
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    // TODO: Replace YOUR_WEB3FORMS_ACCESS_KEY_HERE with your real key from web3forms.com
+    formData.append("access_key", "a568a048-ea7a-48a8-aab1-0c91528f39c7");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Booking request sent successfully! We'll contact you soon.");
+        (event.target as HTMLFormElement).reset();
+      } else {
+        setResult("Error sending request. Please try again.");
+      }
+    } catch (error) {
+      setResult("Network error. Please try again.");
+    }
+  };
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -30,7 +62,7 @@ export default function Booking() {
                 <div>
                   <h4 className="text-xl font-bold mb-1 text-black">Call Us</h4>
                   <p className="text-gray-500 mb-2">Mon-Sat, 9AM to 6PM</p>
-                  <a href="tel:+919876543210" className="text-lg font-semibold text-black hover:text-primary transition-colors">+91 98765 43210</a>
+                  <a href="tel:9500888900" className="text-lg font-semibold text-black hover:text-primary transition-colors">9500888900</a>
                 </div>
               </div>
 
@@ -41,7 +73,7 @@ export default function Booking() {
                 <div>
                   <h4 className="text-xl font-bold mb-1 text-black">Email Us</h4>
                   <p className="text-gray-500 mb-2">We'll reply within 24 hours</p>
-                  <a href="mailto:hello@droneman.in" className="text-lg font-semibold text-black hover:text-primary transition-colors">hello@droneman.in</a>
+                  <a href="mailto:zoostudiosindia@gmail.com" className="text-lg font-semibold text-black hover:text-primary transition-colors">zoostudiosindia@gmail.com</a>
                 </div>
               </div>
 
@@ -51,8 +83,8 @@ export default function Booking() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold mb-1 text-black">Visit Academy</h4>
-                  <p className="text-gray-500 mb-2">Tech Park, Phase 2</p>
-                  <p className="text-lg font-semibold text-black">Chennai, Tamil Nadu 600001</p>
+                  <p className="text-gray-500 mb-2">kelambakkam</p>
+                  <p className="text-lg font-semibold text-black">chennai, taminlnadu-600048</p>
                 </div>
               </div>
             </div>
@@ -69,14 +101,16 @@ export default function Booking() {
           >
             <div className="bg-white p-8 md:p-10 rounded-3xl border border-gray-200 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-red-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-              
+
               <h4 className="text-3xl font-bold mb-8 relative z-10 text-black">Book a Consultation</h4>
-              
-              <form className="relative z-10 space-y-6" onSubmit={(e) => e.preventDefault()}>
+
+              <form className="relative z-10 space-y-6" onSubmit={onSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-600">Full Name</label>
                     <input
+                      name="name"
+                      required
                       type="text"
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                       placeholder="John Doe"
@@ -85,22 +119,23 @@ export default function Booking() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-600">Phone Number</label>
                     <input
+                      name="phone"
+                      required
                       type="tel"
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                      placeholder="+91 98765 43210"
+                      placeholder="9500888900"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-600">I am interested in</label>
-                  <select defaultValue="" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none">
+                  <select name="interested_in" required defaultValue="" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none">
                     <option value="" disabled>Select a service or course</option>
                     <option value="shooting">Drone Shooting Service</option>
-                    <option value="mapping">Industrial Mapping</option>
-                    <option value="course_dgca">DGCA Pilot Course</option>
-                    <option value="course_fpv">FPV Racing Course</option>
-                    <option value="workshop">STEM Workshop</option>
+                    <option value="mapping">Cinematography</option>
+                    <option value="course_dgca">Kids Workshop</option>
+                    <option value="course_fpv">Engineering Workshop</option>
                     <option value="other">Other Inquiry</option>
                   </select>
                 </div>
@@ -108,6 +143,7 @@ export default function Booking() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-600">Message (Optional)</label>
                   <textarea
+                    name="message"
                     rows={4}
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"
                     placeholder="Tell us more about your requirements..."
@@ -116,11 +152,20 @@ export default function Booking() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 to-red-800 text-white font-bold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(229,9,20,0.3)]"
+                  disabled={result === "Sending...."}
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 to-red-800 text-white font-bold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(229,9,20,0.3)] disabled:opacity-50"
                 >
-                  Send Request <Send className="w-5 h-5" />
+                  {result === "Sending...." ? "Sending..." : (
+                    <>Send Request <Send className="w-5 h-5" /></>
+                  )}
                 </button>
-                
+
+                {result && result !== "Sending...." && (
+                  <div className={`p-4 rounded-xl text-center text-sm font-medium ${result.includes('successfully') ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                    {result}
+                  </div>
+                )}
+
                 <p className="text-center text-sm text-gray-500 mt-4">
                   Or connect instantly via <a href="#" className="text-emerald-600 font-semibold hover:underline">WhatsApp</a>
                 </p>
